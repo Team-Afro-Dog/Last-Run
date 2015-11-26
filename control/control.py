@@ -1,4 +1,7 @@
-'''Shivam Swarnkar'''
+'''Shivam Swarnkar
+Test keys: Forward arrow, back word arrow key, space and x.
+Work with multiple keys at the same time.
+'''
 import random, pygame
 
 ###########NOT GAME CONTROL ########FOR SNOW#######
@@ -41,6 +44,11 @@ image =pygame.image.load(str(image_count)+".png")
 clock = 0
 pygame.display.set_caption("Control (x axis)")
 done = False
+
+snow_ball = False
+ball_x = 0
+ball_y = 0
+ball_x_inc = 0
 while not done:
         
         for event in pygame.event.get():
@@ -49,15 +57,34 @@ while not done:
 
                 elif event.type == pygame.KEYDOWN:
                         if event.key == pygame.K_LEFT:
-                            x_inc = -0.3
+                            x_inc = -0.5
                             
                         #x_inc is change in cordinate            
                         elif event.key == pygame.K_RIGHT:
-                            x_inc = 0.3
+                            x_inc = 0.5
                             image =pygame.image.load(str(image_count)+".png")
                             image_count += 1
                             if image_count > 4:
                                     image_count =1
+
+                        elif event.key == pygame.K_SPACE:
+                            y_inc = -0.5
+                            image =pygame.image.load(str(image_count)+".png")
+                            image_count += 1
+                            if image_count > 4:
+                                    image_count =1
+                        elif event.key == pygame.K_x:
+                            ball_x_inc = 1
+                            snow_ball = True
+                            ball_x = int(x+30)
+                            ball_y = int(y+30)
+                            image =pygame.image.load(str(image_count)+".png")
+                            image_count += 1
+                            if image_count > 3:
+                                    image_count =1
+                        
+
+                
 
                 elif event.type == pygame.KEYUP:
                 # If it is an arrow key, reset vector back to zero
@@ -65,20 +92,31 @@ while not done:
                             x_inc = 0
                         elif event.key == pygame.K_RIGHT:
                             x_inc =0
+                        elif event.key == pygame.K_x:
+                            snow_ball = False
+                       
+        if y + y_inc <= 200:
+                y_inc = 0.5
+        if y + y_inc == 250:
+                y += y_inc
+                y_inc =0
+                                
 
         image =pygame.image.load(str(image_count)+".png")
         #making change of images slower(change the clock += num to see the affect)
         if x_inc != 0:
                 clock +=1
-                if clock %100 == 0:
+                if clock %50 == 0:
                         image_count += 1
                         if image_count >4:
                                 image_count =1
+  
         #making sure that avatar doesn't cross the frame                
         if x +x_inc < size[0]-37 and y + y_inc <= size[1]-37 \
            and x + x_inc > -15 and y >-15:
                 x += x_inc
                 y += y_inc
+        ball_x += ball_x_inc
 
         
 
@@ -86,6 +124,12 @@ while not done:
         screen.blit(image, (x, y))
         screen.blit(text, [350, 200])
         pygame.draw.rect(screen, BLACK, [0,295,920,300]) #platform
+        if snow_ball or (ball_x != 0 and ball_y !=0):
+                pygame.draw.circle(screen, RED, [ball_x, ball_y],5)
+                if( ball_x > 910):
+                        ball_x = 0
+                        ball_y = 0
+                                   
         #########################SNOW (NOT IMPORTANT FOR CONTROL##################################
         # Process each snow flake in the list
         for i in range(len(snow_list)):

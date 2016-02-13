@@ -1,8 +1,8 @@
 #Team Afro Dog
 #@Shivam Swarnkar
-#Cordinate Class
+#Coordinate Class
 
-class Cordinate:
+class Coordinate:
     def __init__(self, x, y, x_inc = 0, y_inc = 0):
         self.x = x
         self.y = y

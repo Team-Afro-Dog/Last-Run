@@ -1,3 +1,5 @@
+import sys
+sys.path.insert(0,"../Modules")
 import spritesheet
 import ssAccessor
 import pygame

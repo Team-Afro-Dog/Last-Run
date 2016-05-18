@@ -1,29 +1,41 @@
 '''
-Version 1.0 
-Naive way: have 2 imgs next to each other and move
-When first/second image finishes loops it back 
+Example on how to use (semi-pseudocode):
 
-Need to implement:
--Better blit optmization - not blit all of the img background
--Ability to change the screen to another screen
--Move left and right
--Maybe use SpriteSheet class
+   screen = pygame.display.set_mode(100,100)
+   Background background("backgroundImg.png", screen, 5)
+
+   while True:
+
+      if makeBackgroundFaster:
+         background.changeToSpeed(10) 
+
+      if makeBackgroundBackwards:
+         background.changeToSpeed(-5)
+
+      background.move() # move background   
+      background.display()   
+
+Works well when going left to right
+but buggy when going right to left
 '''
 
 import pygame
-
 pygame.display.init()
 
 class Background(object):
    
-   def __init__(self, imgPath, screen, speed):
+   def __init__(self, imgPath, screen, speed = 0):
       self.img = pygame.image.load(imgPath)
       self.screen = screen
       self.firstImgXCoordinate = 0
       self.secondImgXCoordinate = self.img.get_width()
       self.speed = speed
 
-   def changeSpeed(self, speed):
+   # maybe implement exceptions if cannot find path
+   def changeImg(self, imgPath):
+      self.img = pygame.image.load(imgPath)
+
+   def changeToSpeed(self, speed):
       self.speed = speed
 
    def isFirstImgFinish(self):
@@ -49,8 +61,7 @@ class Background(object):
       entire thing which slows performance.
       '''
       self.screen.blit(self.img, (self.firstImgXCoordinate,0))   
-      self.screen.blit(self.img, (self.secondImgXCoordinate, 0))   
-         
-      
+      self.screen.blit(self.img, (self.secondImgXCoordinate, 0)) 
 
-      
+
+

@@ -5,7 +5,6 @@ from pygame.locals import *
 pygame.init()
 #import display_text_and_make_buttons as d
 
-os.chdir("/Users/SKamalF/Desktop/AfroDog")
 
 color = colors.colors()
 

@@ -6,7 +6,6 @@ matched to their RGB tuple values.
 Color names are capitalized.
 '''
 
-
 def colors ():
     clrs = open("colors.txt", 'r')
     clr = {}                                #Dictionary that will be returned
@@ -25,8 +24,5 @@ def colors ():
         clr[name] = value
         name = ""
         i = 0
-        
+       
     return clr
-
-clr = colors()
-print (clr["SEA GREEN"])

@@ -149,7 +149,7 @@ def pauseMenu(screen):
     if resume.clicked:
         return "resume"
     if quit.clicked:
-        return "exit"
+        return "quit"
 
 def modeMenu(screen):
     easy = RectButton(screen, (250, 70), color["SALMON"], color["DEEP PINK"], (1,200), "Easy", color["LAWN GREEN"])

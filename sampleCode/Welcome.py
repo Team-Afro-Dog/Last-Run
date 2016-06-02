@@ -1,4 +1,4 @@
-import pygame, colors, sys#, button_class
+import pygame, colors, sys
 from pygame.locals import *
 
 pygame.init()

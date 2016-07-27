@@ -1,0 +1,57 @@
+/**----NOTE STARTS-----**/
+#note{
+	width: 30%;
+	text-align: center;
+	color:black;
+	background-color: white;
+	height: 100px;
+	margin: auto;
+	margin-top:10%;
+	line-height: 100px;
+	overflow: hidden;
+	font-style: bold;
+	font-size: 2em;
+}
+
+/**----NOTE ENDS-----**/
+*{
+	box-sizing: border-box;
+	margin: 0px;
+	padding: 0px;
+}
+
+body{
+	background-color: #C63D0F;
+	color:#3b3738;
+	background: url("speed.jpg") no-repeat center center fixed;
+	opacity: .8;
+	background-size: cover;
+	font-family: "Open Sans";
+}
+
+.brand{
+	text-align: center;
+	background-color: #FDF3E7;
+
+
+}
+
+.brand-name{
+	font-size: 5em;
+	font-style: italic;
+
+
+
+}
+.brand-tag{
+	font-size: 1.5em;
+	font-style: bold;
+	padding-left:15%;
+	width: 100%;
+	color:#7E8F7C;
+}
+hr{
+	width: 30%;
+	margin: auto;
+	visibility: hidden;
+}

@@ -23,7 +23,7 @@
 body{
 	background-color: #C63D0F;
 	color:#3b3738;
-	background: url("img/speed.jpg") no-repeat center center fixed;
+	background: url("speed.jpg") no-repeat center center fixed;
 	opacity: .8;
 	background-size: cover;
 	font-family: "Open Sans";
